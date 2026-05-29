@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Nicolas Figueroa Benavides - Ingeniero de Software, Análisis de Datos, Inteligencia Artificial y Automatización" />
+  <title>Nicolas Figueroa · Software Engineer</title>
+
+  <!-- Google Fonts: Syne (display) + DM Sans (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ========== LOADER ========== -->
+  <div id="loader" aria-hidden="true">
+    <div class="loader-inner">
+      <span class="loader-code">&lt;NF /&gt;</span>
+      <div class="loader-bar"><div class="loader-fill"></div></div>
+    </div>
+  </div>
+
+  <!-- ========== CURSOR ========== -->
+  <div id="cursor-dot"></div>
+  <div id="cursor-ring"></div>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav id="navbar" aria-label="Navegación principal">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo" aria-label="Inicio">NF<span class="dot">.</span></a>
+      <ul class="nav-links" role="list">
+        <li><a href="#about">Sobre mí</a></li>
+        <li><a href="#education">Formación</a></li>
+        <li><a href="#skills">Habilidades</a></li>
+        <li><a href="#experience">Experiencia</a></li>
+        <li><a href="#projects">Proyectos</a></li>
+        <li><a href="#cv">CV</a></li>
+        <li><a href="#contact">Contacto</a></li>
+      </ul>
+      <button class="theme-toggle" id="themeToggle" aria-label="Cambiar modo oscuro/claro">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+      <button class="hamburger" id="hamburger" aria-label="Menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-mobile" id="navMobile" aria-hidden="true">
+      <ul role="list">
+        <li><a href="#about">Sobre mí</a></li>
+        <li><a href="#education">Formación</a></li>
+        <li><a href="#skills">Habilidades</a></li>
+        <li><a href="#experience">Experiencia</a></li>
+        <li><a href="#projects">Proyectos</a></li>
+        <li><a href="#cv">CV</a></li>
+        <li><a href="#contact">Contacto</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ========== HERO ========== -->
+  <section id="hero" aria-label="Presentación">
+    <canvas id="hero-canvas" aria-hidden="true"></canvas>
+
+    <div class="hero-content">
+      <!-- Avatar placeholder - reemplazar con foto real -->
+      <div class="hero-avatar reveal-up" aria-label="Foto de perfil de Nicolas Figueroa">
+        <div class="avatar-ring"></div>
+        <div class="avatar-img">
+         <img src="./assets/foto-nicolas.jpg" alt="Nicolas Figueroa" />
+        </div>
+        <div class="avatar-status" title="Disponible para oportunidades"></div>
+      </div>
+
+      <div class="hero-text">
+        <p class="hero-greeting reveal-up delay-1"><span class="mono">//</span> Hola, soy</p>
+        <h1 class="hero-name reveal-up delay-2">Nicolas<br/><span class="accent">Figueroa</span></h1>
+        <p class="hero-role reveal-up delay-3">
+          <span class="typewriter" id="typewriter"></span>
+        </p>
+        <p class="hero-tagline reveal-up delay-4">
+          Transformo datos en decisiones y procesos en soluciones inteligentes.<br/>
+          Ingeniería de Software · IA · Automatización · Análisis de datos.
+        </p>
+        <div class="hero-cta reveal-up delay-5">
+          <a href="#contact" class="btn btn-primary">
+            <i class="fa-solid fa-paper-plane"></i> Contactar
+          </a>
+          <!-- Reemplazar href por la ruta real del CV cuando esté disponible -->
+          <a href="assets/cv-nicolas-figueroa.pdf" class="btn btn-outline" download="CV-Nicolas-Figueroa.pdf">
+            <i class="fa-solid fa-download"></i> Descargar CV
+          </a>
+        </div>
+        <div class="hero-social reveal-up delay-6">
+          <a href="https://github.com/ElNico689" target="_blank" rel="noopener" aria-label="GitHub">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/nicolas-figueroa-benavides-5b45442a8" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+          <a href="mailto:nfigueroabenavides@gmail.com" aria-label="Email">
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+          <a href="https://wa.me/573222866170" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-scroll-hint" aria-hidden="true">
+      <span>scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ========== ABOUT ========== -->
+  <section id="about" aria-label="Sobre mí">
+    <div class="container">
+      <div class="section-label reveal-up"><span class="mono">01 /</span> sobre mí</div>
+      <h2 class="section-title reveal-up">Quién soy<span class="accent">.</span></h2>
+
+      <div class="about-grid">
+        <div class="about-text reveal-left">
+          <p class="lead">
+            Soy estudiante de <strong>Ingeniería de Software</strong> con formación técnica en desarrollo de aplicaciones, apasionado por convertir problemas complejos en soluciones tecnológicas elegantes.
+          </p>
+          <p>
+            Mi interés se centra en la intersección entre el <strong>análisis de datos</strong>, la <strong>automatización de procesos</strong> y la <strong>inteligencia artificial</strong>. Creo que la tecnología bien aplicada puede transformar cualquier industria, y eso me impulsa a aprender constantemente.
+          </p>
+          <p>
+            Cuento con experiencia real en entornos empresariales donde he aplicado SQL, Python, Power BI y herramientas de automatización para mejorar la eficiencia operativa. Me caracterizo por mi pensamiento analítico, capacidad de resolver problemas y adaptabilidad tecnológica.
+          </p>
+          <div class="about-tags">
+            <span>Resolución de problemas</span>
+            <span>Pensamiento analítico</span>
+            <span>Aprendizaje continuo</span>
+            <span>Trabajo en equipo</span>
+            <span>Adaptabilidad</span>
+            <span>Comunicación técnica</span>
+          </div>
+        </div>
+
+        <div class="about-stats reveal-right">
+          <div class="stat-card">
+            <span class="stat-num">5°</span>
+            <span class="stat-label">Semestre Ing. Software</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num">6+</span>
+            <span class="stat-label">Meses de experiencia real</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num">11+</span>
+            <span class="stat-label">Tecnologías dominadas</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num">2</span>
+            <span class="stat-label">Proyectos destacados</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== EDUCATION ========== -->
+  <section id="education" class="alt-bg" aria-label="Formación académica">
+    <div class="container">
+      <div class="section-label reveal-up"><span class="mono">02 /</span> formación</div>
+      <h2 class="section-title reveal-up">Trayectoria académica<span class="accent">.</span></h2>
+
+      <div class="timeline">
+
+        <div class="timeline-item reveal-up">
+          <div class="timeline-marker">
+            <i class="fa-solid fa-graduation-cap"></i>
+          </div>
+          <div class="timeline-card">
+            <div class="timeline-top">
+              <span class="timeline-badge current">Cursando</span>
+              <span class="timeline-date">2026 – Actualidad</span>
+            </div>
+            <h3>Ingeniería de Software</h3>
+            <p class="timeline-institution"><i class="fa-solid fa-university"></i> Universidad</p>
+            <p>Actualmente en 5.° semestre, con énfasis en arquitectura de software, bases de datos, desarrollo de sistemas e inteligencia artificial. Formación orientada a la construcción de soluciones tecnológicas de alto impacto.</p>
+            <div class="timeline-tags">
+              <span>Algoritmos</span><span>Bases de datos</span><span>Ingeniería de requisitos</span><span>IA</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal-up delay-1">
+          <div class="timeline-marker">
+            <i class="fa-solid fa-code"></i>
+          </div>
+          <div class="timeline-card">
+            <div class="timeline-top">
+              <span class="timeline-badge done">Completado</span>
+              <span class="timeline-date">2024 – 2026</span>
+            </div>
+            <h3>Técnico Profesional en Desarrollo de Aplicaciones de Software</h3>
+            <p class="timeline-institution"><i class="fa-solid fa-school"></i> Institución técnica</p>
+            <p>Formación técnica en desarrollo de software, gestión de bases de datos, programación orientada a objetos y metodologías de desarrollo. Base sólida que complementa la carrera profesional.</p>
+            <div class="timeline-tags">
+              <span>Programación</span><span>SQL</span><span>Java</span><span>Metodologías ágiles</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SKILLS ========== -->
+  <section id="skills" aria-label="Habilidades técnicas">
+    <div class="container">
+      <div class="section-label reveal-up"><span class="mono">03 /</span> habilidades</div>
+      <h2 class="section-title reveal-up">Stack técnico<span class="accent">.</span></h2>
+
+      <div class="skills-grid">
+
+        <!-- Columna izquierda: barras animadas -->
+        <div class="skills-bars reveal-left">
+          <h3 class="skills-subtitle">Nivel de dominio</h3>
+
+          <div class="skill-bar-item" data-percent="85">
+            <div class="skill-info">
+              <span><i class="fa-brands fa-python"></i> Python</span>
+              <span class="skill-pct">85%</span>
+            </div>
+            <div class="bar-track"><div class="bar-fill" style="--pct:85%"></div></div>
+          </div>
+
+          <div class="skill-bar-item" data-percent="80">
+            <div class="skill-info">
+              <span><i class="fa-solid fa-database"></i> SQL / SQL Server</span>
+              <span class="skill-pct">80%</span>
+            </div>
+            <div class="bar-track"><div class="bar-fill" style="--pct:80%"></div></div>
+          </div>
+
+          <div class="skill-bar-item" data-percent="80">
+            <div class="skill-info">
+              <span><i class="fa-solid fa-chart-bar"></i> Power BI</span>
+              <span class="skill-pct">80%</span>
+            </div>
+            <div class="bar-track"><div class="bar-fill" style="--pct:80%"></div></div>
+          </div>
+
+          <div class="skill-bar-item" data-percent="75">
+            <div class="skill-info">
+              <span><i class="fa-brands fa-java"></i> Java</span>
+              <span class="skill-pct">75%</span>
+            </div>
+            <div class="bar-track"><div class="bar-fill" style="--pct:75%"></div></div>
+          </div>
+
+          <div class="skill-bar-item" data-percent="75">
+            <div class="skill-info">
+              <span><i class="fa-brands fa-html5"></i> HTML / CSS / JS</span>
+              <span class="skill-pct">75%</span>
+            </div>
+            <div class="bar-track"><div class="bar-fill" style="--pct:75%"></div></div>
+          </div>
+
+          <div class="skill-bar-item" data-percent="85">
+            <div class="skill-info">
+              <span><i class="fa-brands fa-git-alt"></i> Git &amp; GitHub</span>
+              <span class="skill-pct">85%</span>
+            </div>
+            <div class="bar-track"><div class="bar-fill" style="--pct:85%"></div></div>
+          </div>
+        </div>
+
+        <!-- Columna derecha: tarjetas de categoría -->
+        <div class="skills-cards reveal-right">
+          <h3 class="skills-subtitle">Áreas de especialidad</h3>
+          <div class="skill-cat-grid">
+
+            <div class="skill-cat-card">
+              <div class="scc-icon"><i class="fa-solid fa-brain"></i></div>
+              <h4>Inteligencia Artificial</h4>
+              <p>Desarrollo de proyectos con IA, modelos de análisis predictivo y automatización inteligente.</p>
+            </div>
+
+            <div class="skill-cat-card">
+              <div class="scc-icon"><i class="fa-solid fa-gears"></i></div>
+              <h4>Automatización</h4>
+              <p>Automatización de procesos repetitivos, RPA-oriented scripting y optimización de flujos.</p>
+            </div>
+
+            <div class="skill-cat-card">
+              <div class="scc-icon"><i class="fa-solid fa-chart-line"></i></div>
+              <h4>Análisis de Datos</h4>
+              <p>Gestión, limpieza, transformación y visualización de datos con SQL, Python y Power BI.</p>
+            </div>
+
+            <div class="skill-cat-card">
+              <div class="scc-icon"><i class="fa-solid fa-arrows-spin"></i></div>
+              <h4>Metodologías Ágiles</h4>
+              <p>Scrum, Kanban, planificación de sprints y trabajo colaborativo en equipos de desarrollo.</p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Tecnologías adicionales en chips -->
+      <div class="tech-chips reveal-up">
+        <span><i class="fa-solid fa-database"></i> SQL Server Management Studio</span>
+        <span><i class="fa-solid fa-table"></i> Excel avanzado</span>
+        <span><i class="fa-brands fa-python"></i> Pandas / NumPy</span>
+        <span><i class="fa-solid fa-code-branch"></i> Control de versiones</span>
+        <span><i class="fa-solid fa-robot"></i> Automatización RPA</span>
+        <span><i class="fa-solid fa-diagram-project"></i> Modelado de datos</span>
+        <span><i class="fa-solid fa-terminal"></i> Scripting</span>
+        <span><i class="fa-brands fa-github"></i> GitHub Actions</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== EXPERIENCE ========== -->
+  <section id="experience" class="alt-bg" aria-label="Experiencia profesional">
+    <div class="container">
+      <div class="section-label reveal-up"><span class="mono">04 /</span> experiencia</div>
+      <h2 class="section-title reveal-up">Experiencia profesional<span class="accent">.</span></h2>
+
+      <div class="exp-wrapper">
+        <div class="exp-card reveal-up">
+          <div class="exp-header">
+            <div class="exp-logo-placeholder" aria-label="Logo Atain">
+              <span>AT</span>
+            </div>
+            <div class="exp-meta">
+              <h3 class="exp-role">Automation &amp; Intelligence</h3>
+              <p class="exp-company"><i class="fa-solid fa-building"></i> Atain</p>
+              <span class="exp-duration"><i class="fa-regular fa-clock"></i> 6 meses</span>
+            </div>
+          </div>
+
+          <p class="exp-desc">
+            Participación activa en procesos de análisis, optimización y automatización dentro de la empresa, identificando problemas operativos y proponiendo soluciones tecnológicas orientadas a mejorar la eficiencia de los procesos internos.
+          </p>
+
+          <div class="exp-responsibilities">
+            <h4><i class="fa-solid fa-list-check"></i> Responsabilidades clave</h4>
+            <ul>
+              <li><i class="fa-solid fa-circle-check"></i> Análisis de procesos empresariales e identificación de cuellos de botella operativos</li>
+              <li><i class="fa-solid fa-circle-check"></i> Desarrollo de soluciones tecnológicas para optimizar flujos de trabajo</li>
+              <li><i class="fa-solid fa-circle-check"></i> Automatización de tareas repetitivas mediante scripting en Python</li>
+              <li><i class="fa-solid fa-circle-check"></i> Generación de reportería y dashboards interactivos en Power BI</li>
+              <li><i class="fa-solid fa-circle-check"></i> Manejo, limpieza y análisis de datos con SQL y Python</li>
+              <li><i class="fa-solid fa-circle-check"></i> Apoyo en toma de decisiones basada en datos</li>
+              <li><i class="fa-solid fa-circle-check"></i> Trabajo colaborativo con diferentes áreas de la empresa</li>
+              <li><i class="fa-solid fa-circle-check"></i> Implementación de soluciones orientadas a la eficiencia operativa</li>
+            </ul>
+          </div>
+
+          <div class="exp-tech">
+            <h4><i class="fa-solid fa-wrench"></i> Tecnologías utilizadas</h4>
+            <div class="exp-tech-chips">
+              <span><i class="fa-brands fa-python"></i> Python</span>
+              <span><i class="fa-solid fa-database"></i> SQL</span>
+              <span><i class="fa-solid fa-chart-bar"></i> Power BI</span>
+              <span><i class="fa-solid fa-table"></i> Excel</span>
+              <span><i class="fa-brands fa-git-alt"></i> Git &amp; GitHub</span>
+              <span><i class="fa-solid fa-gears"></i> Automatización</span>
+              <span><i class="fa-solid fa-chart-line"></i> Análisis de datos</span>
+            </div>
+          </div>
+
+          <div class="exp-skills-gained">
+            <h4><i class="fa-solid fa-star"></i> Competencias desarrolladas</h4>
+            <div class="competency-grid">
+              <div class="competency">
+                <div class="comp-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+                <span>Pensamiento analítico</span>
+              </div>
+              <div class="competency">
+                <div class="comp-icon"><i class="fa-solid fa-puzzle-piece"></i></div>
+                <span>Resolución de problemas</span>
+              </div>
+              <div class="competency">
+                <div class="comp-icon"><i class="fa-solid fa-robot"></i></div>
+                <span>Automatización</span>
+              </div>
+              <div class="competency">
+                <div class="comp-icon"><i class="fa-solid fa-users"></i></div>
+                <span>Trabajo en equipo</span>
+              </div>
+              <div class="competency">
+                <div class="comp-icon"><i class="fa-solid fa-comments"></i></div>
+                <span>Comunicación técnica</span>
+              </div>
+              <div class="competency">
+                <div class="comp-icon"><i class="fa-solid fa-bolt"></i></div>
+                <span>Adaptabilidad</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PROJECTS ========== -->
+  <section id="projects" aria-label="Proyectos">
+    <div class="container">
+      <div class="section-label reveal-up"><span class="mono">05 /</span> proyectos</div>
+      <h2 class="section-title reveal-up">Proyectos destacados<span class="accent">.</span></h2>
+
+      <div class="projects-grid">
+
+        <!-- Proyecto 1: Este portafolio -->
+        <article class="project-card reveal-up" aria-label="Proyecto: Portafolio Web Profesional">
+          <div class="project-card-inner">
+            <div class="project-header">
+              <div class="project-icon"><i class="fa-solid fa-globe"></i></div>
+              <div class="project-links">
+                <a href="https://github.com/ElNico689" target="_blank" rel="noopener" aria-label="Ver código fuente" title="GitHub">
+                  <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="#" target="_blank" rel="noopener" aria-label="Ver demo en vivo" title="Demo">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-title">Portafolio Web Profesional</h3>
+            <p class="project-desc">
+              Hoja de vida online moderna y responsiva construida con HTML5, CSS3 y JavaScript puro. Incluye animaciones con scroll, modo oscuro, diseño premium y despliegue en GitHub Pages. Este mismo sitio.
+            </p>
+            <div class="project-tech-row">
+              <span>HTML5</span>
+              <span>CSS3</span>
+              <span>JavaScript</span>
+              <span>GitHub Pages</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Proyecto 2: AdventureWorks Data Analysis -->
+        <article class="project-card reveal-up delay-1" aria-label="Proyecto: Análisis de Datos AdventureWorks">
+          <div class="project-card-inner">
+            <div class="project-header">
+              <div class="project-icon"><i class="fa-solid fa-chart-pie"></i></div>
+              <div class="project-links">
+                <a href="https://github.com/ElNico689" target="_blank" rel="noopener" aria-label="Ver código fuente" title="GitHub">
+                  <i class="fa-brands fa-github"></i>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-title">Análisis de Datos: AdventureWorks</h3>
+            <p class="project-desc">
+              Proyecto completo de análisis de datos sobre la base AdventureWorks: limpieza y transformación de datos con SQL Server Management Studio, consultas avanzadas, y generación de dashboards interactivos en Power BI para la toma de decisiones empresariales.
+            </p>
+            <div class="project-highlights">
+              <div class="highlight-item">
+                <i class="fa-solid fa-broom"></i>
+                <span>Limpieza de datos</span>
+              </div>
+              <div class="highlight-item">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <span>Consultas SQL avanzadas</span>
+              </div>
+              <div class="highlight-item">
+                <i class="fa-solid fa-chart-bar"></i>
+                <span>Dashboards Power BI</span>
+              </div>
+            </div>
+            <div class="project-tech-row">
+              <span>SQL Server</span>
+              <span>SSMS</span>
+              <span>Power BI</span>
+              <span>DAX</span>
+              <span>ETL</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CV SECTION ========== -->
+  <section id="cv" class="alt-bg" aria-label="Hoja de vida">
+    <div class="container">
+      <div class="section-label reveal-up"><span class="mono">06 /</span> curriculum</div>
+      <h2 class="section-title reveal-up">Hoja de vida<span class="accent">.</span></h2>
+
+      <div class="cv-wrapper reveal-up">
+
+        <!--
+          ============================================================
+          ÁREA PARA INSERTAR HOJA DE VIDA REAL DE NICOLAS FIGUEROA
+          ============================================================
+          Para agregar el CV real:
+          1. Guardar el archivo PDF como: assets/cv-nicolas-figueroa.pdf
+          2. Reemplazar el src del <iframe> por: src="assets/cv-nicolas-figueroa.pdf"
+          3. Actualizar también el href del botón de descarga con la misma ruta
+          ============================================================
+        -->
+
+        <div class="cv-preview">
+          <!-- Vista previa del CV - reemplazar src con la ruta real cuando esté disponible -->
+          <div class="cv-placeholder" id="cvPlaceholder">
+            <div class="cv-placeholder-inner">
+              <i class="fa-regular fa-file-pdf"></i>
+              <h3>Nicolas Figueroa Benavides</h3>
+              <p>Estudiante de Ingeniería de Software</p>
+              <p class="cv-note">
+                <i class="fa-solid fa-info-circle"></i>
+                La hoja de vida completa estará disponible próximamente.<br/>
+                <small>Para ver el CV completo, descárgalo usando el botón a continuación.</small>
+              </p>
+              <!--
+                Cuando el PDF esté listo, reemplazar este bloque por:
+                <iframe src="assets/cv-nicolas-figueroa.pdf"
+                        title="Hoja de vida Nicolas Figueroa"
+                        width="100%"
+                        height="600px"
+                        loading="lazy">
+                </iframe>
+              -->
+            </div>
+          </div>
+        </div>
+
+        <div class="cv-actions">
+          <!--
+            REEMPLAZAR AQUÍ: Cambiar href por "assets/cv-nicolas-figueroa.pdf"
+            cuando el archivo PDF esté listo
+          -->
+          <a href="assets/cv-nicolas-figueroa.pdf"
+             class="btn btn-primary btn-lg"
+             download="CV-Nicolas-Figueroa.pdf"
+             aria-label="Descargar hoja de vida de Nicolas Figueroa">
+            <i class="fa-solid fa-download"></i>
+            Descargar CV (PDF)
+          </a>
+
+          <a href="mailto:nfigueroabenavides@gmail.com?subject=Solicitud%20de%20CV%20%7C%20Nicolas%20Figueroa"
+             class="btn btn-outline"
+             aria-label="Solicitar CV por correo">
+            <i class="fa-solid fa-envelope"></i>
+            Solicitar por correo
+          </a>
+        </div>
+
+        <!-- Resumen de competencias del CV -->
+        <div class="cv-summary">
+          <h3>Resumen de competencias</h3>
+          <div class="cv-summary-grid">
+            <div class="cv-sum-item">
+              <i class="fa-solid fa-laptop-code"></i>
+              <div>
+                <strong>Desarrollo de Software</strong>
+                <p>Python, Java, HTML/CSS/JS, SQL</p>
+              </div>
+            </div>
+            <div class="cv-sum-item">
+              <i class="fa-solid fa-database"></i>
+              <div>
+                <strong>Gestión de Datos</strong>
+                <p>SQL Server, Power BI, ETL, DAX</p>
+              </div>
+            </div>
+            <div class="cv-sum-item">
+              <i class="fa-solid fa-gears"></i>
+              <div>
+                <strong>Automatización</strong>
+                <p>Scripting, RPA, Optimización de procesos</p>
+              </div>
+            </div>
+            <div class="cv-sum-item">
+              <i class="fa-brands fa-git-alt"></i>
+              <div>
+                <strong>Control de versiones</strong>
+                <p>Git, GitHub, GitHub Pages</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CONTACT ========== -->
+  <section id="contact" aria-label="Contacto">
+    <div class="container">
+      <div class="section-label reveal-up"><span class="mono">07 /</span> contacto</div>
+      <h2 class="section-title reveal-up">Hablemos<span class="accent">.</span></h2>
+
+      <div class="contact-wrapper">
+        <div class="contact-intro reveal-left">
+          <p class="lead">
+            ¿Tienes un proyecto en mente o una oportunidad que pueda interesarme? Estoy disponible para colaboraciones, prácticas y proyectos de tecnología.
+          </p>
+          <p>No dudes en escribirme, respondo todos los mensajes.</p>
+
+          <div class="contact-links">
+            <a href="mailto:nfigueroabenavides@gmail.com" class="contact-link-item" aria-label="Correo electrónico">
+              <div class="cli-icon"><i class="fa-solid fa-envelope"></i></div>
+              <div class="cli-text">
+                <span class="cli-label">Email</span>
+                <span class="cli-value">nfigueroabenavides@gmail.com</span>
+              </div>
+            </a>
+
+            <a href="https://wa.me/573222866170" target="_blank" rel="noopener" class="contact-link-item" aria-label="WhatsApp">
+              <div class="cli-icon"><i class="fa-brands fa-whatsapp"></i></div>
+              <div class="cli-text">
+                <span class="cli-label">Celular / WhatsApp</span>
+                <span class="cli-value">+57 322 286 6170</span>
+              </div>
+            </a>
+
+            <a href="https://github.com/ElNico689" target="_blank" rel="noopener" class="contact-link-item" aria-label="GitHub">
+              <div class="cli-icon"><i class="fa-brands fa-github"></i></div>
+              <div class="cli-text">
+                <span class="cli-label">GitHub</span>
+                <span class="cli-value">@ElNico689</span>
+              </div>
+            </a>
+
+            <a href="https://www.linkedin.com/in/nicolas-figueroa-benavides-5b45442a8" target="_blank" rel="noopener" class="contact-link-item" aria-label="LinkedIn">
+              <div class="cli-icon"><i class="fa-brands fa-linkedin-in"></i></div>
+              <div class="cli-text">
+                <span class="cli-label">LinkedIn</span>
+                <span class="cli-value">Nicolas Figueroa Benavides</span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Formulario de contacto -->
+        <div class="contact-form-wrap reveal-right">
+          <form class="contact-form" id="contactForm" novalidate>
+            <div class="form-group">
+              <label for="contactName">Nombre</label>
+              <input type="text" id="contactName" name="name" placeholder="Tu nombre completo" required autocomplete="name" />
+            </div>
+            <div class="form-group">
+              <label for="contactEmail">Email</label>
+              <input type="email" id="contactEmail" name="email" placeholder="tu@email.com" required autocomplete="email" />
+            </div>
+            <div class="form-group">
+              <label for="contactSubject">Asunto</label>
+              <input type="text" id="contactSubject" name="subject" placeholder="¿En qué puedo ayudarte?" />
+            </div>
+            <div class="form-group">
+              <label for="contactMessage">Mensaje</label>
+              <textarea id="contactMessage" name="message" rows="5" placeholder="Cuéntame sobre tu proyecto o propuesta..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full">
+              <i class="fa-solid fa-paper-plane"></i> Enviar mensaje
+            </button>
+            <p class="form-note">
+              <i class="fa-solid fa-shield-halved"></i>
+              Tu información es confidencial y no será compartida.
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer id="footer">
+    <div class="footer-inner">
+      <p class="footer-brand">Nicolas Figueroa<span class="accent">.</span></p>
+      <p class="footer-sub">Ingeniería de Software · Análisis de Datos · Automatización · IA</p>
+      <div class="footer-social">
+        <a href="https://github.com/ElNico689" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/nicolas-figueroa-benavides-5b45442a8" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="mailto:nfigueroabenavides@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+        <a href="https://wa.me/573222866170" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+      </div>
+      <p class="footer-copy">&copy; <span id="year"></span> Nicolas Figueroa Benavides — Hecho con <i class="fa-solid fa-heart"></i> y mucho café.</p>
+    </div>
+  </footer>
+
+  <!-- ========== BACK TO TOP ========== -->
+  <button id="backToTop" class="back-to-top" aria-label="Volver arriba" title="Volver arriba">
+    <i class="fa-solid fa-chevron-up"></i>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>
