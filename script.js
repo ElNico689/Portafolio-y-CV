@@ -377,7 +377,7 @@ if (contactForm) {
     submitBtn.disabled = true;
     submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Enviando...';
 
-    // Simulación de delay de envío
+    // Simulación de delay de envío pa que se vea chebre
     setTimeout(() => {
       showFormFeedback('¡Mensaje enviado con éxito! Te responderé pronto. 🚀', 'success');
       contactForm.reset();
